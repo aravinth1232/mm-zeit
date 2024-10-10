@@ -6,6 +6,7 @@ import Products from './components/Products'
 import Navbar from './components/Navbar'
 import { AnimatePresence, motion } from 'framer-motion';
 import Services from './components/Services'
+import CursorTrail from './components/CursorTrail'
 
 
 
@@ -46,6 +47,7 @@ function App() {
 
    <Router>
     <Navbar />
+    <CursorTrail />
     <AnimatedRoutes />
     
    

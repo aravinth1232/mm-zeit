@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import logo from "../assets/logo.jpg"
-import {Link} from "react-router-dom"
+import {Link,useLocation} from "react-router-dom"
 import { motion } from 'framer-motion';
 
 
@@ -8,7 +8,16 @@ import { motion } from 'framer-motion';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
+    const { pathname } = useLocation();
+    const currentPath = pathname.split("/")?.[1];
 
+
+    const navLinkClasses = (path) =>
+      ` transition-all duration-300 ${
+        path === currentPath
+          ? "font-bold animate-pulse text-lg  text-gray-800 "
+          : "font-normal text-gray-500  text-sm"
+      }`;
 
     useEffect(() => {
       window.scrollTo(0, 0);
@@ -34,7 +43,7 @@ const Navbar = () => {
       transition={{ duration: 0.3 }} 
       
     className={`fixed w-full top-0 z-50 transition-colors duration-300  ${
-        isScrolled ? 'backdrop-blur-xl shadow-xl rounded-2xl font-bold' : 'bg-white '
+        isScrolled ? 'backdrop-blur-xl shadow-xl rounded-2xl font-bold text-teal-400' : 'bg-white '
       }`} >
         <div className='flex items-center justify-around py-4 px-4 '>
 
@@ -44,12 +53,12 @@ const Navbar = () => {
         src={logo} alt="logo" loading='lazy' />
     </div>
     
-    <nav className='flex gap-7 text-lg'>
+    <nav className='flex gap-7 '>
         
-    <Link to="/" >Home</Link>
-    <Link to="/about" >About</Link>
+    <Link to="/" className={navLinkClasses("")} >Home</Link>
+    <Link to="/about" className={navLinkClasses("about")} >About</Link>
     {/* <Link to="/products" >Products</Link>  */}
-    <Link to="/services" >Services</Link>   
+    <Link to="/services"  className={navLinkClasses("services")} >Services</Link>   
 
     </nav>
     </div>

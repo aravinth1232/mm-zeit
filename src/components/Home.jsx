@@ -20,7 +20,7 @@ const Home = () => {
 
 
   return (
-
+    
     <motion.div
     initial={{ opacity: 0, x: -100,  backgroundColor: '#000000' }}
     animate={{ opacity: 1, x: 0,  backgroundColor: '#ffffff' }}
