@@ -13,10 +13,10 @@ const Navbar = () => {
 
 
     const navLinkClasses = (path) =>
-      ` transition-all duration-300 ${
+      ` transition-all font-karla text-lg duration-300 ${
         path === currentPath
-          ? "font-bold animate-pulse text-lg  text-gray-800 "
-          : "font-normal text-gray-500  text-sm"
+          ? "font-bold border-2  px-2 bg-black text-secondary rounded-full border-black   text-gray-800 "
+          : "font-bold border-transparent border-2 text-primary px-2 hover:bg-black hover:rounded-full hover:text-secondary navactive"
       }`;
 
     useEffect(() => {
@@ -42,9 +42,10 @@ const Navbar = () => {
       exit={{ opacity: 0, y: -50 }}
       transition={{ duration: 0.3 }} 
       
-    className={`fixed w-full top-0 z-50 transition-colors duration-300  ${
-        isScrolled ? 'backdrop-blur-xl shadow-xl rounded-2xl font-bold text-teal-400' : 'bg-white '
+    className={`fixed w-full top-0 z-40 transition-colors duration-300   ${
+        isScrolled ? 'backdrop-blur-xl shadow-xl rounded-2xl font-bold text-teal-400' : 'bg-fourth'
       }`} >
+        
         <div className='flex items-center justify-around py-4 px-4 '>
 
     <div>
@@ -56,9 +57,11 @@ const Navbar = () => {
     <nav className='flex gap-7 '>
         
     <Link to="/" className={navLinkClasses("")} >Home</Link>
-    <Link to="/about" className={navLinkClasses("about")} >About</Link>
+    {/* <Link to="/about" className={navLinkClasses("about")} >About</Link> */}
     {/* <Link to="/products" >Products</Link>  */}
-    <Link to="/services"  className={navLinkClasses("services")} >Services</Link>   
+    <Link to="/services"  className={navLinkClasses("services")} >Services</Link>
+    <Link to="/contact"  className={navLinkClasses("contact")} >Contact</Link>
+    
 
     </nav>
     </div>

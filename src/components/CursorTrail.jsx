@@ -35,13 +35,14 @@ const CursorTrail = () => {
   return (
     <>
     <motion.div
+      className='hidden lg:block'
       style={{
         position: 'fixed',
-        top: 0,
-        left: 0,
+        top: -20,
+        left: -30,
         width: 80,
         height: 80,
-        backgroundColor: 'transparent',
+        backgroundColor: 'teal',
         backdropFilter: 'blur(2px)',
         borderColor:"black",
         borderRadius: '50%',

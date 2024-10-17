@@ -7,6 +7,8 @@ import Navbar from './components/Navbar'
 import { AnimatePresence, motion } from 'framer-motion';
 import Services from './components/Services'
 import CursorTrail from './components/CursorTrail'
+import ImagePage from './components/ImagePage'
+import Contact from './components/Contact'
 
 
 
@@ -14,7 +16,7 @@ function AnimatedRoutes() {
   const location = useLocation();
 
   return (
-    <AnimatePresence mode="sync">
+    <AnimatePresence mode="sync" initial="false" >
 
 <motion.div
         
@@ -28,9 +30,11 @@ function AnimatedRoutes() {
 
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/products" element={<Products />} />
+        {/* <Route path="/about" element={<About />} /> */}
+        {/* <Route path="/products" element={<Products />} /> */}
         <Route path='/services' element={ <Services /> } />
+        <Route path='/contact' element={ <Contact /> } />
+        <Route path="/image/:id" element={ <ImagePage /> } />
       </Routes>
     </AnimatePresence>
   );
@@ -47,7 +51,7 @@ function App() {
 
    <Router>
     <Navbar />
-    <CursorTrail />
+    {/* <CursorTrail  /> */}
     <AnimatedRoutes />
     
    

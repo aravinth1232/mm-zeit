@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
+import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 // Sample testimonials data
@@ -26,61 +25,51 @@ const testimonials = [
   },
 ];
 
+// Animation variants for Framer Motion
+const testimonialVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: 'easeOut',
+    },
+  },
+};
+
 const Testimonials = () => {
-  const cardRefs = useRef([]);
-
-  useEffect(() => {
-    cardRefs.current.forEach((card, index) => {
-      if (card) { // Ensure card exists
-        // Set up GSAP hover effect
-        const hoverAnimation = gsap.fromTo(
-          card,
-          { scale: 1 },
-          { scale: 1.05, duration: 0.3, paused: true, ease: "power1.inOut" }
-        );
-
-        const handleMouseEnter = () => hoverAnimation.play();
-        const handleMouseLeave = () => hoverAnimation.reverse();
-
-        card.addEventListener('mouseenter', handleMouseEnter);
-        card.addEventListener('mouseleave', handleMouseLeave);
-
-        // Cleanup event listeners on unmount
-        return () => {
-          card.removeEventListener('mouseenter', handleMouseEnter);
-          card.removeEventListener('mouseleave', handleMouseLeave);
-        };
-      }
-    });
-  }, []);
-
   return (
-    <section className="bg-gray-100 p-8 lg:p-16 rounded-md">
-      <h2 className="text-4xl font-bold text-center pb-24">What Our Customers Say</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 md:gap-6">
-        <AnimatePresence>
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              ref={(el) => (cardRefs.current[index] = el)} // Assigning refs to each card
-              className="bg-white p-4 rounded shadow-lg flex flex-col items-center relative"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-            >
-              {/* Centered User Image */}
-              <img
-                src={testimonial.image}
-                alt={testimonial.name}
-                className="w-24 h-24 rounded-full absolute top-[-40px] border-4 border-gray-800" // Adjusted positioning
-              />
-              <div className="pt-16"> {/* Padding for text area */}
-                <p className="text-lg italic text-center">"{testimonial.content}"</p>
-                <p className="text-md font-semibold mt-2 text-center">{testimonial.name}</p>
-              </div>
-            </motion.div>
-          ))}
-        </AnimatePresence>
+    <section className="bg-fourth p-8 lg:p-16 rounded-md">
+      <h2 className="text-4xl font-bold text-center text-primary pb-24 font-karla">
+        What Our Customers Say
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 md:gap-6 one">
+        {testimonials.map((testimonial, index) => (
+          <motion.div
+            key={index}
+            className="bg-primary p-4 two rounded-lg shadow-lg flex flex-col items-center relative"
+            variants={testimonialVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            {/* Centered User Image */}
+            <img
+              src={testimonial.image}
+              alt={testimonial.name}
+              className="w-24 h-24 rounded-full absolute top-[-40px] border-2 border-primary"
+            />
+            <div className="pt-16">
+              <p className="text-xl text-center font-karla text-secondary">
+                "{testimonial.content}"
+              </p>
+              <p className="text-lg mt-2 font-inconsolata text-center text-tertiary">
+                {testimonial.name}
+              </p>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

@@ -4,6 +4,8 @@ import RemodelImage from "../components/RemodelImage"
 import BentoGrid from './BentoGrid';
 import Offer from './Offer';
 import Footer from "../components/Footer"
+import ProductGrid from './ProductGrid';
+import PageTransiton from './PageTransiton';
 
 const Services = () => {
 
@@ -17,14 +19,9 @@ const Services = () => {
 
 
   return (
-    <motion.div
-    initial={{ opacity: 0, x: -100,  backgroundColor: '#000000' }}
-    animate={{ opacity: 1, x: 0,  backgroundColor: '#ffffff' }}
-    exit={{ opacity: 0, x: 100,  backgroundColor: '#000000' }}
-    transition={{ duration: 0.5 }}
-    className='z-20'
     
-  >
+    <PageTransiton >
+
  <main className='pt-24'>
 
     <div className='  py-5'>
@@ -39,15 +36,15 @@ const Services = () => {
     </div>
 
     <div className='  py-5'>
-    
-   <BentoGrid />
+     {/* <BentoGrid /> */}
+
+     <ProductGrid />
 
     </div>
 
     <Footer />
     </main>
-
-  </motion.div>
+    </PageTransiton>
   )
 }
 

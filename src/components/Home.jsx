@@ -6,6 +6,7 @@ import WhyUs from './WhyUs';
 import HorizontalCarousel from './FeaturedProjects';
 import Testimonials from './Testimonials';
 import Footer  from '../components/Footer';
+import PageTransiton from './PageTransiton';
 
 
 const Home = () => {
@@ -20,30 +21,25 @@ const Home = () => {
 
 
   return (
-    
-    <motion.div
-    initial={{ opacity: 0, x: -100,  backgroundColor: '#000000' }}
-    animate={{ opacity: 1, x: 0,  backgroundColor: '#ffffff' }}
-    exit={{ opacity: 0, x: 100,  backgroundColor: '#000000' }}
-    transition={{ duration: 0.5 }}
-    className='z-20'
-   
-  >
-    <main className='pt-24'>
+<>
 
-    <div className=' lg:h-[500px]' >
+    <PageTransiton >
+  
+    <main className='pt-24 bg-fourth'>
+
+    <div className=' h-screen ' >
     <HomeCarousel />
     </div>
     
-    <div className='pb-14'>
+    <div className=''>
       <WhyUs />
 
     </div>
     
-    <div className='pb-14'>
+    {/* <div className='pb-14'>
       <HorizontalCarousel />
 
-    </div>
+    </div> */}
     
     <div className=''>
       <Testimonials />
@@ -52,8 +48,9 @@ const Home = () => {
     <Footer />
 
     </main>
-
-    </motion.div>
+    </PageTransiton>  
+    </>
+  
   )
 }
 

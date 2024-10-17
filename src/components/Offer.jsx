@@ -24,8 +24,7 @@ const content = [
 ];
 
 
-const Offer = () => {
-  const sectionRef = useRef(null);
+const Offer = () => {const sectionRef = useRef(null);
   const { ref: inViewRef, inView } = useInView({ threshold: 0.5 });
   const controls = useAnimation();
   const titleControls = useAnimation();
@@ -58,7 +57,7 @@ const Offer = () => {
       }}
       initial={{ opacity: 0 }}
       animate={controls}
-      className="relative bg-gradient-to-br from-gray-600 via-gray-900 to-gray-300  p-8 lg:p-16 text-white rounded-md overflow-hidden"
+      className="relative bg-gradient-to-br from-gray-900 via-gray-600 to-gray-300 p-8 lg:p-16 text-white rounded-md overflow-hidden"
     >
       {/* SVG Mask */}
       <img
@@ -71,27 +70,27 @@ const Offer = () => {
         ref={sectionRef}
         initial={{ x: 50, opacity: 0 }}
         animate={titleControls}
-        className="text-4xl font-bold mb-6 relative z-10"
+        className="text-4xl text-secondary font-karla font-bold mb-6 relative z-10"
       >
-        What we Offer 
+        What we Offer
       </motion.h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-7 relative z-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-7 relative z-10 one">
         {content.map((item, index) => (
           <motion.div
             key={index}
             custom={index}
             initial={{ x: 50, opacity: 0 }}
             animate={itemsControls}
-            className="backdrop-blur-md flex flex-col justify-start items-start gap-5 shadow-lg rounded-lg px-4 py-6"
+            className="backdrop-blur-md flex flex-col justify-start items-start gap-5 two shadow-lg rounded-lg px-4 py-6"
           >
-            <h3 className="text-2xl font-semibold">{item.title}</h3>
-            <p className="text-lg">{item.description}</p>
+            <h3 className="text-2xl font-karla text-secondary ">{item.title}</h3>
+            <p className="text-lg font-inconsolata text-tertiary ">{item.description}</p>
           </motion.div>
         ))}
       </div>
     </motion.div>
-  );
-};
+  )
+}
 
 export default Offer;
 
