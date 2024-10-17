@@ -7,6 +7,8 @@ import HorizontalCarousel from './FeaturedProjects';
 import Testimonials from './Testimonials';
 import Footer  from '../components/Footer';
 import PageTransiton from './PageTransiton';
+import BikeScene from './BikeScene';
+import { FaWhatsapp } from 'react-icons/fa';
 
 
 const Home = () => {
@@ -25,7 +27,7 @@ const Home = () => {
 
     <PageTransiton >
   
-    <main className='pt-24 bg-fourth'>
+    <main className='pt-16 lg:pt-24 bg-fourth'>
 
     <div className=' h-screen ' >
     <HomeCarousel />
@@ -44,7 +46,10 @@ const Home = () => {
     <div className=''>
       <Testimonials />
     </div>
-
+    
+    {/* <div>
+      <BikeScene />
+    </div> */}
     <Footer />
 
     </main>

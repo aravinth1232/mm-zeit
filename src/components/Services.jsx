@@ -24,18 +24,18 @@ const Services = () => {
 
  <main className='pt-24'>
 
-    <div className='  py-5'>
+    <div className='  '>
     
     <RemodelImage />
 
     </div>
 
     
-    <div className='py-5'> 
+    <div className=''> 
       <Offer />
     </div>
 
-    <div className='  py-5'>
+    <div className='  '>
      {/* <BentoGrid /> */}
 
      <ProductGrid />

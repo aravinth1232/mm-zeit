@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@react-three/drei": "^9.114.4",
+    "@react-three/fiber": "^8.17.10",
     "flowbite-react": "^0.10.2",
     "framer-motion": "^11.11.4",
     "gsap": "^3.12.5",
@@ -22,7 +24,8 @@
     "react-router-dom": "^6.26.2",
     "react-toastify": "^10.0.6",
     "scrollreveal": "^4.0.9",
-    "swiper": "^11.1.14"
+    "swiper": "^11.1.14",
+    "three": "^0.169.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
